@@ -1,0 +1,17 @@
+CREATE SEQUENCE SEQ_AUTHOR START WITH 1 INCREMENT BY 1;
+CREATE TABLE author (
+    id BIGINT PRIMARY KEY DEFAULT nextval('SEQ_AUTHOR'),
+    first_name VARCHAR(255),
+    last_name VARCHAR(255),
+    birth_date DATE
+);
+
+CREATE SEQUENCE SEQ_BOOK START WITH 1 INCREMENT BY 1;
+CREATE TABLE book (
+    id BIGINT PRIMARY KEY DEFAULT nextval('SEQ_BOOK'),
+    title VARCHAR(255),
+    genre VARCHAR(255),
+    release_year INTEGER,
+    author_id BIGINT,
+    CONSTRAINT fk_author FOREIGN KEY (author_id) REFERENCES author(id)
+);

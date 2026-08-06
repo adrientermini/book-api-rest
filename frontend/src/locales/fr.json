@@ -1,0 +1,68 @@
+{
+  "nav": {
+    "authors": "Auteurs",
+    "books": "Livres"
+  },
+  "main": {
+    "columns": {
+      "title": "Titre",
+      "genre": "Genre",
+      "releaseYear": "Année de sortie",
+      "author": "Auteur",
+      "firstName": "Prénom",
+      "lastName": "Nom",
+      "birthDate": "Date de naissance"
+    },
+    "fields": {
+      "title": "Titre",
+      "genre": "Genre",
+      "releaseYear": "Année de sortie",
+      "author": "Auteur",
+      "firstName": "Prénom",
+      "lastName": "Nom",
+      "birthDate": "Date de naissance"
+    },
+    "genres": {
+      "FANTASY": "Fantastique",
+      "HORROR": "Horreur"
+    },
+    "actions": {
+      "add": "Ajouter",
+      "edit": "Éditer",
+      "delete": "Supprimer",
+      "delete_confirm_title": "Supprimer ?",
+      "delete_tooltip": "Supprimer"
+    },
+    "messages": {
+      "added_title": "Livre ajouté",
+      "added_body": "Le livre a été ajouté avec succès.",
+      "modified_title": "Livre modifié",
+      "modified_body": "Le livre a été modifié avec succès.",
+      "deleted_title": "Livre supprimé",
+      "deleted_body": "Le livre a été supprimé avec succès.",
+      "author_added_title": "Auteur ajouté",
+      "author_added_body": "L'auteur a été ajouté avec succès.",
+      "author_modified_title": "Auteur modifié",
+      "author_modified_body": "L'auteur a été modifié avec succès.",
+      "author_deleted_title": "Auteur supprimé",
+      "author_deleted_body": "L'auteur a été supprimé avec succès."
+    },
+    "modal": {
+      "add_title": "Ajouter un nouveau livre",
+      "add_description": "Remplissez le formulaire pour ajouter un livre au tableau.",
+      "edit_title": "Modifier le livre",
+      "edit_description": "Modifiez les champs ci-dessous.",
+      "author_add_title": "Ajouter un nouvel auteur",
+      "author_add_description": "Remplissez le formulaire pour ajouter un auteur au tableau.",
+      "author_edit_title": "Modifier l'auteur",
+      "author_edit_description": "Modifiez les champs ci-dessous.",
+      "cancel": "Annuler",
+      "save": "Enregistrer"
+    },
+    "confirm": {
+      "title": "Confirmer ?",
+      "cancel": "Annuler",
+      "confirm": "Confirmer"
+    }
+  }
+}

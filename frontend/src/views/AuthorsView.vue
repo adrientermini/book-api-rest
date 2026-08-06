@@ -73,7 +73,7 @@ const columns: ColDef[] = [
 
 function getAll() {
   useAuthorService().getAll().then(authors => {
-    data.value = authors;
+    data.value = authors.data.value;
   }).catch(error => console.error(error));
 }
 

@@ -79,7 +79,7 @@ const columns: ColDef[] = [
 
 function getAll() {
   bookService.getAll().then(books => {
-    data.value = books;
+    data.value = books.data.value;
   }).catch(error => console.error(error));
 }
 

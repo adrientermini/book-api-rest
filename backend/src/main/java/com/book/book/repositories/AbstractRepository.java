@@ -1,13 +1,13 @@
 package com.book.book.repositories;
 
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.util.List;
 import java.util.Optional;
 
 public abstract class AbstractRepository<T, ID> {
 
-    @PersistenceContext(unitName = "default")
+    @Inject
     protected EntityManager entityManager;
 
     private final Class<T> entityClass;
@@ -26,22 +26,35 @@ public abstract class AbstractRepository<T, ID> {
 
     public T save(T entity) {
         try {
+            entityManager.getTransaction().begin();
             Object id = entityManager.getEntityManagerFactory().getPersistenceUnitUtil().getIdentifier(entity);
+            T result;
             if (id == null) {
                 entityManager.persist(entity);
-                return entity;
+                result = entity;
             } else {
-                return entityManager.merge(entity);
+                result = entityManager.merge(entity);
             }
+            entityManager.getTransaction().commit();
+            return result;
         } catch (Exception e) {
-            // Fallback strategy if getIdentifier fails or if we want to stick to the previous simple logic
-            // But since we use sequences and generated IDs, this is generally safe.
-            // A more robust way in JPA is to check if the ID is null via reflection or property access if we can't use getPersistenceUnitUtil
-            return entityManager.merge(entity);
+            if (entityManager.getTransaction().isActive()) {
+                entityManager.getTransaction().rollback();
+            }
+            throw e;
         }
     }
 
     public void deleteById(ID id) {
-        findById(id).ifPresent(entityManager::remove);
+        try {
+            entityManager.getTransaction().begin();
+            findById(id).ifPresent(entityManager::remove);
+            entityManager.getTransaction().commit();
+        } catch (Exception e) {
+            if (entityManager.getTransaction().isActive()) {
+                entityManager.getTransaction().rollback();
+            }
+            throw e;
+        }
     }
 }

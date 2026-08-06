@@ -1,11 +1,11 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Tomcat 9.0.112" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.112" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
-    <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/book_war" />
+    <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/book" />
     <option name="UPDATING_POLICY" value="restart-server" />
     <deployment>
       <artifact name="book:war">
         <settings>
-          <option name="CONTEXT_PATH" value="/book_war" />
+          <option name="CONTEXT_PATH" value="/book" />
         </settings>
       </artifact>
     </deployment>
